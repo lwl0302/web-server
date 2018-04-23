@@ -1,0 +1,379 @@
+#createTask .content>div:nth-child(1){
+    margin-bottom: 10px;
+}
+#createTask .content>div:nth-child(1) button{
+    margin-right: 10px;
+    background-color: #b0bcbc;
+}
+#createTask .content>div:nth-child(1) button:hover,#createTask .content>div:nth-child(1) button.current{
+    background-color: #1b8cf2;
+}
+/*.fileSensitive*/
+#createTask .fileSensitive{
+    background-color: #f2f2f2;
+    padding:30px;
+    display: none;
+}
+#createTask .fileSensitive>div:nth-child(1){
+    background-color: #fff;
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 10px;
+}
+#createTask .fileSensitive>div:nth-child(1) button{
+    margin-left: 30px;
+    background-color: #b0bcbc;
+}
+#createTask .fileSensitive>div:nth-child(1) button:hover,#createTask .fileSensitive>div:nth-child(1) button.current{
+    background-color: #1b8cf2;
+}
+#createTask .fileSensitive>div:nth-child(2){
+    border:2px dashed #1b8cf2;
+    line-height: 50px;
+    text-align: center;
+    padding:10px 0;
+    color: #ff7a22;
+    position: relative;
+}
+#createTask .fileSensitive>div:nth-child(2) button{
+    height: 40px;
+    border-radius: 4px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: #1b8cf2;
+    cursor: pointer;
+    font-size: 14px;
+    width:360px;
+}
+#createTask .fileSensitive>div:nth-child(2) input{
+    position: absolute;
+    width:360px;
+    height:40px;
+    right: 0;
+    left:0;
+    top:65px;
+    margin:auto;
+    opacity: 0;
+    cursor: pointer;
+}
+#createTask .fileSensitive ul{
+    background-color: #fff;
+    height:60px;
+    line-height: 60px;
+    margin-top: 10px;
+    display: none;
+}
+#createTask .fileSensitive li{
+    width:25%;
+    text-align: center;
+}
+#createTask .fileSensitive li span{
+    display: inline-block;
+    height:30px;
+    padding:0 30px;
+    background-color: #ff7a22;
+    line-height: 30px;
+    color: #fff;
+    border-radius: 4px;
+}
+#createTask .fileSensitive>div:nth-child(4){
+    text-align: right;
+    margin-top: 30px;
+}
+#createTask .fileSensitive>div:nth-child(4) button.current{
+    background-color: #b0bcbc;
+    cursor: not-allowed;
+}
+/*.dataBaseSensitive*/
+#createTask .dataBaseSensitive {
+    background-color: #f2f2f2;
+    padding: 30px;
+    display: none;
+}
+/*.configTable*/
+#createTask .configTable{
+    line-height: 40px;
+    width:450px;
+    margin:auto;
+    display: none;
+}
+#createTask .configTable span{
+    display: inline-block;
+    width:120px;
+    text-align: right;
+}
+#createTask .configTable strong{
+    font-weight: normal;
+    margin-left: 10px;
+}
+#createTask .configTable s{
+    display: inline-block;
+    height:30px;
+    line-height: 30px;
+    width:312px;
+    vertical-align: top;
+    margin-top: 5px;
+    border-radius: 4px;
+    margin-left: 10px;
+    background:#fff url('../img/dropdown.png') no-repeat 300px center;
+    cursor: pointer;
+    text-decoration: none;
+    padding-left: 8px;
+    overflow: hidden;
+}
+#createTask .configTable div:nth-child(5){
+    position: relative;
+}
+#createTask .configTable .dropDown{
+    position: absolute;
+    width:320px;
+    background-color: #fff;
+    top:40px;
+    right:0;
+    border-radius: 4px;
+    display: none;
+    height:400px;
+    overflow: auto;
+}
+#createTask .configTable .dropDown li{
+    padding:0 10px;
+}
+#createTask .configTable .dropDown li:hover,#createTask .configTable .dropDown li.current{
+    background-color: #1b8cf2;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#createTask .configTable div:last-child{
+    text-align: center;
+    line-height: 50px;
+    margin-top: 20px;
+}
+#createTask .configTable div:last-child button{
+    margin:0 4px;
+}
+/*.configSensitive*/
+#createTask .configSensitive{
+    background-color: #f2f2f2;
+    padding:20px;
+}
+#createTask .configSensitive header{
+    height:51px;
+    margin-bottom: 20px;
+}
+#createTask .configSensitive h2{
+    font-weight: normal;
+    font-size: 18px;
+    height:30px;
+    line-height: 30px;
+}
+#createTask .configSensitive>div>div:nth-child(3){
+    height:50px;
+    line-height: 50px;
+}
+#createTask .configSensitive>div>div:nth-child(3) button{
+    background-color: #b0bcbc;
+    margin-right: 20px;
+}
+#createTask .configSensitive>div>div:nth-child(3) button:hover,#createTask .configSensitive>div>div:nth-child(3) button.current{
+    background-color: #1b8cf2;
+}
+#createTask .configSensitive>div>div:nth-child(4){
+    padding:30px;
+    border:1px solid #1b8cf2;
+}
+#createTask .configSensitive>div>div:nth-child(5){
+    text-align: right;
+    height:50px;
+    line-height: 50px;
+}
+#createTask .configSensitive>div>div:nth-child(5) button{
+    margin-left: 20px;
+}
+#createTask .configSensitive>div>div:nth-child(5) button.current{
+    background-color: #b0bcbc;
+    cursor: not-allowed;
+}
+/*.chooseRules*/
+#createTask .chooseRules{
+    display: none;
+}
+#createTask .chooseRules header{
+    background: url('../img/progress.png') no-repeat center;
+}
+/*.configRules*/
+#createTask .configRules{
+    display: none;
+}
+#createTask .configRulesStyle li{
+    width:20%;
+}
+/*.hasRules*/
+#createTask .hasRules{
+    display: none;
+}
+#createTask .hasRules li{
+    height:30px;
+    line-height: 30px;
+    width:12.5%;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+}
+#createTask .hasRules li strong{
+    display: inline-block;
+    width:14px;
+    height:14px;
+    border:1px solid #aab6b7;
+    vertical-align: top;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 7px;
+    margin-right: 8px;
+}
+#createTask .hasRules li strong.current{
+    background: url('../img/radio.png') no-repeat center;
+}
+#createTask .hasRules li span{
+    cursor: pointer;
+}
+/*.chooseTarget*/
+#createTask .chooseTarget{
+    display: none;
+}
+#createTask .chooseTarget header{
+    background: url('../img/_progress.png') no-repeat center;
+}
+/*.hasTarget*/
+#createTask .hasTarget{
+    display: none;
+}
+#createTask .hasTarget>div:nth-child(2){
+    line-height: 40px;
+    background-color: #fff;
+}
+#createTask .hasTarget>div:nth-child(2) ul{
+    border-bottom: 1px solid #f1f1f2;
+}
+#createTask .hasTarget>div:nth-child(2) li:nth-child(1){
+    width:8%;
+    text-align: center;
+}
+#createTask .hasTarget>div:nth-child(2) li{
+    min-height: 40px;
+    width:23%;
+    text-align: center;
+}
+#createTask .hasTarget>div:nth-child(2) li:nth-child(1) strong{
+    display: inline-block;
+    width:14px;
+    height:14px;
+    border:1px solid #aab6b7;
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: top;
+    margin-top: 12px;
+}
+#createTask .hasTarget>div:nth-child(2) li:nth-child(1) strong.current{
+    background: url('../img/radio.png') no-repeat center;
+}
+/*.testTable*/
+#createTask .testTable{
+    line-height: 50px;
+    width:480px;
+    margin:auto;
+}
+#createTask .testTable button{
+    margin:0 4px;
+}
+#createTask .testTable p{
+    text-align: center;
+}
+#createTask .testTable span{
+    display: inline-block;
+    width:130px;
+    text-align: right;
+}
+#createTask .testTable strong{
+    font-weight: normal;
+}
+#createTask .testTable input{
+    height:26px;
+    width:340px;
+    border:1px solid #aab6b6;
+    border-radius: 4px;
+    padding-left: 8px;
+}
+#createTask .testTable s{
+    display: inline-block;
+    vertical-align: top;
+    width:18px;
+    height:50px;
+}
+#createTask .testTable s.success{
+    background:url('../img/testSuccess.png') no-repeat center;
+}
+#createTask .testTable s.fail{
+    background:url('../img/testFail.png') no-repeat center;
+}
+/*.configTarget*/
+#createTask .addDatabase{
+    padding:0 15px;
+    display: none;
+}
+/*.CSVTarget*/
+#createTask .CSVTarget{
+    height:300px;
+    line-height: 300px;
+    font-size: 24px;
+    text-align: center;
+    display: none;
+}
+/*.created*/
+#createTask .created{
+    display: none;
+}
+#createTask .created header{
+    background: url('../img/progress_.png') no-repeat center;
+}
+#createTask .created h4{
+    border: 1px solid #1b8cf2;
+    height:360px;
+    line-height: 360px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: normal;
+    margin-top: 10px;
+}
+#createTask .created h4 strong{
+    font-weight: normal;
+    color: #ff7a22;
+}
+#createTask .created h4 span{
+    color: #1b8cf2;
+    cursor: pointer;
+}
+#createTask .created h4 span:hover{
+    color: #ff7a22;
+}
+#createTask .created p{
+    text-align: right;
+    height:50px;
+    line-height: 50px;
+}
+#createTask .created p button{
+    padding:0 20px;
+}
+/*createTaskTip*/
+#createTask .createTaskTip{
+    position: absolute;
+    top:35%;
+    width:500px;
+    left:0;
+    right:0;
+    margin:auto;
+    z-index: 1001;
+    background-color: #fff;
+    display: none;
+}

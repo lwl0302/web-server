@@ -1,0 +1,60 @@
+/*.dataStatistic*/
+#home .dataStatistic{
+    background-color: #fff;
+    padding:30px 25px;
+    margin-bottom: 30px;
+}
+#home .dataStatistic li{
+    width:25%;
+}
+#home .dataStatistic li>div{
+    width:216px;
+    height:140px;
+    line-height: 140px;
+    margin:auto;
+    position: relative;
+    background-color: #f7f7f7;
+    background-repeat: no-repeat;
+    background-position: 30px center;
+    padding-left: 120px;
+    padding-right: 40px;
+}
+#home .dataStatistic li:nth-child(1)>div{
+    background-image:url('../img/totalTask.png');
+}
+#home .dataStatistic li:nth-child(2)>div{
+    background-image:url('../img/tasking.png');
+}
+#home .dataStatistic li:nth-child(3)>div{
+    background-image:url('../img/dealData.png');
+}
+#home .dataStatistic li:nth-child(4)>div{
+    background-image:url('../img/dataTime.png');
+}
+#home .dataStatistic li>div strong{
+    position: absolute;
+    width:30px;
+    height:44px;
+    background: url('../img/arrow.png') no-repeat center;
+    top:48px;
+    right:-27px;
+    z-index: 900;
+}
+#home .dataStatistic li>div s{
+    text-decoration: none;
+}
+/*.homeCharts*/
+#home .homeCharts{
+    background-color: #fff;
+    padding:30px;
+}
+#home .homeCharts>div{
+    height:500px;
+    background-color: #f2f2f2;
+}
+#home .bar{
+    width:900px;
+}
+#home .topBar{
+    width:590px;
+}

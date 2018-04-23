@@ -1,0 +1,378 @@
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.clear:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+/*.btn*/
+.btn{
+    height:30px;
+    padding:0 13px;
+    border-radius: 4px;
+    color: #fff;
+    border:none;
+    outline: none;
+    background-color: #1b8cf2;
+    cursor: pointer;
+    font-size: 14px;
+}
+.btn:hover{
+    background-color: #ff7a22;
+}
+/*.header*/
+.header{
+    height:55px;
+    line-height: 55px;
+    color: #797d80;
+}
+/*.content*/
+.content{
+    background-color: #fff;
+    padding:30px;
+}
+/*.search*/
+.search{
+    height:30px;
+    line-height: 30px;
+    margin:10px 0;
+}
+.search input{
+    height:26px;
+    width:340px;
+    border-radius: 4px;
+    outline: none;
+    border:1px solid #aab6b6;
+    font-size: 14px;
+    padding-left: 8px;
+}
+.search button{
+    margin-left: 10px;
+}
+/*.addDatabase*/
+.addDatabase ul{
+    border-bottom: 2px solid #aab6b6;
+}
+.addDatabase li{
+    cursor: pointer;
+    width:12.5%;
+}
+.addDatabase li div.current h1,.addDatabase li div:hover h1{
+    box-shadow: 0 0 10px #1b8cf2;
+    border:1px solid #1b8cf2;
+}
+.addDatabase li.current p,.addDatabase li:hover p{
+    color:#1b8cf2;
+}
+.addDatabase li div{
+    width:135px;
+    margin:auto;
+}
+.addDatabase li h1{
+    height:68px;
+    border:1px solid transparent;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.addDatabase li:nth-child(1) h1{
+    background-image: url('../img/oracle.png');
+}
+.addDatabase li:nth-child(2) h1{
+    background-image: url('../img/db2.png');
+}
+.addDatabase li:nth-child(3) h1{
+    background-image: url('../img/ids.png');
+}
+.addDatabase li:nth-child(4) h1{
+    background-image: url('../img/sqlserver.png');
+}
+.addDatabase li:nth-child(5) h1{
+    background-image: url('../img/sybase.png');
+}
+.addDatabase li:nth-child(6) h1{
+    background-image: url('../img/mysql.png');
+}
+.addDatabase li:nth-child(7) h1{
+    background-image: url('../img/postgresql.png');
+}
+.addDatabase li:nth-child(8) h1{
+    background-image: url('../img/teradatasql.png');
+}
+.addDatabase li p{
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+}
+.addDatabase>div{
+    width:440px;
+    margin:auto;
+    margin-top: 10px;
+}
+.addDatabase>div p{
+    height:40px;
+    line-height: 40px;
+}
+.addDatabase>div p:last-child{
+    text-align: center;
+    margin-top: 10px;
+}
+.addDatabase>div p:last-child button.current{
+    background-color: #b0bcbc;
+    cursor: not-allowed;
+}
+.addDatabase>div span{
+    display: inline-block;
+    width:100px;
+    text-align: right;
+}
+.addDatabase>div input{
+    height:30px;
+    background-color: #fff;
+    border-radius: 4px;
+    border:none;
+    padding-left: 8px;
+    width:332px;
+}
+.addDatabase>div strong{
+    font-weight: normal;
+}
+.addDatabase>div p.tipIcon{
+    text-align: center;
+}
+.addDatabase>div p.tipIcon strong{
+    display: inline-block;
+    vertical-align: top;
+    width:18px;
+    height:40px;
+}
+.addDatabase>div p.tipIcon strong.success{
+    background:url('../img/testSuccess.png') no-repeat center;
+}
+.addDatabase>div p.tipIcon strong.fail{
+    background:url('../img/testFail.png') no-repeat center;
+}
+.addDatabase>div p.tipIcon s{
+    text-decoration: none;
+}
+/*.page*/
+.page{
+    text-align: right;
+    margin-top: 10px;
+    user-select:none;
+}
+.page a{
+    display: inline-block;
+    width:30px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    border:1px solid #ccc;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: #f5f5f6;
+}
+.page a:first-child{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.page a:last-child{
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.page a:hover,.page a.current{
+    background-color: #1b8cf2;
+    color: #fff;
+    border:1px solid #1b8cf2;
+}
+/*.databaseList*/
+.databaseList{
+    background-color: #f2f2f2;
+}
+.databaseList ul{
+    height:540px;
+}
+.databaseList li{
+    min-width: 200px;
+}
+.databaseList li>div{
+    width: 150px;
+    height:68px;
+    padding-top: 110px;
+    cursor: pointer;
+    margin:auto;
+    border-radius: 4px;
+    user-select:none;
+    background: url('../img/databaseIcon.png') no-repeat center 20px;
+}
+.databaseList li h1{
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 4px;
+    line-height: 20px;
+    height:20px;
+    overflow: hidden;
+    font-weight: normal;
+}
+.databaseList li h2{
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 4px;
+    line-height: 20px;
+    height:20px;
+    overflow: hidden;
+}
+.databaseList li h3{
+    text-align: center;
+    font-size: 16px;
+    font-weight: normal;
+    height:60px;
+    line-height: 60px;
+    overflow: hidden;
+}
+.databaseList li h4{
+    text-align: center;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 20px;
+    height:20px;
+    overflow: hidden;
+}
+.databaseList li>div:hover,.databaseList li.current>div{
+    background: url('../img/_databaseIcon.png') no-repeat center 20px;
+}
+.databaseList li>div:hover h1,.databaseList li.current>div h1{
+    color: #ff7a22;
+}
+.databaseList li>div:hover h2,.databaseList li.current>div h2{
+    color: #ff7a22;
+}
+.databaseList li>div:hover h3,.databaseList li.current>div h3{
+    color: #ff7a22;
+}
+.databaseList li>div:hover h4,.databaseList li.current>div h4{
+    color: #ff7a22;
+}
+/*.title*/
+.title{
+    height:36px;
+    line-height: 36px;
+    color: #fff;
+    padding-left:20px;
+    background-color: #1b8cf2;
+}
+.title strong{
+    width:36px;
+    height:36px;
+    background: #ff7a22 url('../img/close.png') no-repeat center;
+    cursor: pointer;
+}
+/*.configRulesStyle*/
+.configRulesStyle{
+    max-height: 474px;
+    overflow: auto;
+    border:1px solid #f2f2f2;
+}
+.configRulesStyle li{
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.configRulesStyle li>div{
+    width:210px;
+    margin:auto;
+}
+.configRulesStyle li>div div{
+    background-color: #fff;
+    padding:0 8px;
+    line-height: 28px;
+    height: 196px;
+}
+.configRulesStyle li>div strong{
+    display: inline-block;
+    width:14px;
+    height:14px;
+    border:1px solid #aab6b7;
+    vertical-align: top;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-top: 6px;
+    margin-right: 8px;
+}
+.configRulesStyle li>div strong.current{
+    background: url('../img/radio.png') no-repeat center;
+}
+.configRulesStyle li>div span{
+    cursor: pointer;
+}
+.configRulesStyle li>div h1{
+    font-weight: normal;
+    text-align: center;
+    font-size: 14px;
+    height:20px;
+    line-height: 20px;
+    margin-top: 6px;
+}
+/*.tableList*/
+.tableList{
+    background-color: #f2f2f2;
+    padding:30px;
+}
+.tableList ul{
+    background-color: #fff;
+}
+.tableList ul>li{
+    line-height: 40px;
+    height: 40px;
+    text-align: center;
+    border-bottom: 2px solid #f2f2f2;
+    overflow: hidden;
+}
+/*.system*/
+.system ul{
+    margin-bottom: 16px;
+}
+.system ul li:not(:first-child){
+    margin-right: 26px;
+    color: #1b8cf2;
+}
+.system ul li:not(:first-child):hover,.system ul li:not(:first-child).current{
+    color: #ff7a22;
+    cursor: pointer;
+}
+/*.deleteBox*/
+.deleteBox{
+    position: fixed;
+    width:400px;
+    height:200px;
+    background-color: #fff;
+    top:30%;
+    left:0;
+    right:0;
+    margin:auto;
+    z-index: 1002;
+    box-shadow: 0 0 5px #000;
+    display: none;
+}
+.deleteBox p{
+    height:84px;
+    line-height: 84px;
+    text-align: center;
+}
+.deleteBox div{
+    height:80px;
+    line-height: 80px;
+    text-align: right;
+    padding:0 30px;
+}
+.deleteBox div button{
+    margin-left: 30px;
+}
+.deleteBox div button:nth-child(1){
+    background-color: #b0bcbc;
+}

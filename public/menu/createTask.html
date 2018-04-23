@@ -1,0 +1,265 @@
+<div id="createTask">
+    <header class="header">当前位置：任务管理>>新建任务</header>
+    <div class="content">
+        <div><button type="button" class="btn" ng-class="isCurrent(isFileSensitive)" ng-click="toFileSensitive()">本地文件脱敏</button><button type="button" class="btn" ng-class="isCurrent(isDatabaseSensitive)" ng-click="toDatabaseSensitive()">数据库脱敏</button></div>
+        <div ng-style="fileSensitiveUI" class="fileSensitive">
+            <div><button type="button" class="btn" ng-class="isCurrent(isExcel)" ng-click="toggleFileType('excel')">Excel</button><button type="button" class="btn" ng-class="isCurrent(isCsv)" ng-click="toggleFileType('csv')">CSV</button><button type="button" class="btn" ng-class="isCurrent(isTxt)" ng-click="toggleFileType('txt')">TXT</button></div>
+            <div>
+                <p>先"选择文件"在"创建任务"(当前仅支持单文件上传)</p>
+                <p><button type="button">选择文件</button></p>
+                <input type="file" file-model="fileData" accept="{{fileType}}" clear-file>
+            </div>
+            <ul class="clear" ng-style="fileListUI">
+                <li class="fl"><span ng-bind="fileSpan()"></span></li>
+                <li class="fl" ng-bind="fileName"></li>
+                <li class="fl">等待上传···</li>
+                <li class="fl" ng-bind="fileSize+'KB'"></li>
+            </ul>
+            <div><button type="button" class="btn" ng-class="isCurrent(isFileDisable)" ng-click="toChooseRules()">下一步</button></div>
+        </div>
+        <div ng-style="dataBaseSensitiveUI" class="dataBaseSensitive">
+            <div ng-style="databaseUI" class="addDatabase">
+                <ul class="clear">
+                    <li class="fl">
+                        <div ng-click="toggleDatabaseType('Oracle')" ng-class="isCurrent(databaseType == 'Oracle')">
+                            <h1></h1>
+                            <p>Oracle</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div ng-click="toggleDatabaseType('DB2')" ng-class="isCurrent(databaseType == 'DB2')">
+                            <h1></h1>
+                            <p>DB2</p>
+                        </div>
+                    </li>
+                    <li style="display: none;" class="fl">
+                        <div ng-click="toggleDatabaseType('Informix Service')" ng-class="isCurrent(databaseType == 'Informix Service')">
+                            <h1></h1>
+                            <p>Informix Service</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div ng-click="toggleDatabaseType('MSSQL')" ng-class="isCurrent(databaseType == 'MSSQL')">
+                            <h1></h1>
+                            <p>SQLServer</p>
+                        </div>
+                    </li>
+                    <li style="display: none;" class="fl">
+                        <div ng-click="toggleDatabaseType('Sybase')" ng-class="isCurrent(databaseType == 'Sybase')">
+                            <h1></h1>
+                            <p>Sybase</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div ng-click="toggleDatabaseType('MySQL')" ng-class="isCurrent(databaseType == 'MySQL')">
+                            <h1></h1>
+                            <p>MySQL</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div ng-click="toggleDatabaseType('PostgreSQL')" ng-class="isCurrent(databaseType == 'PostgreSQL')">
+                            <h1></h1>
+                            <p>PostgreSQL</p>
+                        </div>
+                    </li>
+                    <li class="fl">
+                        <div ng-click="toggleDatabaseType('GREENPLUM')" ng-class="isCurrent(databaseType == 'GREENPLUM')">
+                            <h1></h1>
+                            <p>GreenPlumSQL</p>
+                        </div>
+                    </li>
+                </ul>
+                <div>
+                    <p><span>数据库地址：</span><input type="text" placeholder="请输入数据库地址" ng-model="databaseIp" ng-focus="hideTestTipBox()"></p>
+                    <p><span>数据库类型：</span><strong ng-bind="databaseType == 'MSSQL' ? 'SQLServer' : databaseType"></strong></p>
+                    <p><span>端口：</span><input type="text" placeholder="请输入端口" ng-model="databasePort" ng-focus="hideTestTipBox()"></p>
+                    <p><span>帐号：</span><input type="text" placeholder="请输入帐号" ng-model="databaseUsername" ng-focus="hideTestTipBox()"></p>
+                    <p><span>密码：</span><input type="text" placeholder="请输入密码" ng-model="databasePassword" ng-focus="hideTestTipBox()"></p>
+                    <p><span>数据库名：</span><input type="text" placeholder="请输入数据库名" ng-model="databaseName" ng-focus="hideTestTipBox()"></p>
+                    <p ng-style="testTipBoxUI" class="tipIcon"><strong ng-class="isSuccessTest()"></strong><s ng-bind="isSuccessSpan"></s></p>
+                    <p>
+                        <button ng-style="testBtnUI" type="button" class="btn" ng-click="testDatabase()" ng-class="isCurrent(isTestBtnDisable)">测试连接</button>
+                        <button ng-style="confirmBtnUI" type="button" class="btn" ng-click="toDatabaseTable()">下一步</button>
+                    </p>
+                </div>
+            </div>
+            <div ng-style="tableUI" class="configTable">
+                <div><span>数据库地址：</span><strong ng-bind="databaseIp"></strong></div>
+                <div><span>数据库类型：</span><strong ng-bind="databaseType"></strong></div>
+                <div><span>端口：</span><strong ng-bind="databasePort"></strong></div>
+                <div><span>数据库名：</span><strong ng-bind="databaseName"></strong></div>
+                <div>
+                    <span>需要脱敏的表：</span><s ng-bind="dataSourceTable" ng-click="toggleTableDropDown()"></s>
+                    <ul class="dropDown" ng-style="tableDropDownUI">
+                        <li ng-repeat="i in tableList" ng-bind="i" ng-click="getDataSourceTable(i)"></li>
+                    </ul>
+                </div>
+                <div><button type="button" class="btn" ng-click="toDatabase()">上一步</button><button type="button" class="btn" ng-click="toChooseRules()">下一步</button></div>
+            </div>
+        </div>
+        <div ng-style="configSensitiveUI" class="configSensitive">
+            <div ng-style="chooseRulesUI" class="chooseRules">
+                <header></header>
+                <h2>选择脱敏规则</h2>
+                <div><button type="button" class="btn" ng-class="isCurrent(hasRules)" ng-click="toHasRules()">已有规则</button><button type="button" class="btn" ng-class="isCurrent(configRules)" ng-click="toConfigRules()">配置规则</button></div>
+                <div>
+                    <div ng-style="hasRulesUI" class="hasRules">
+                        <ul class="clear">
+                            <li class="fl" ng-repeat="i in hasRulesList"><span ng-click="toggleHasRulesUuid(i.uuid,i.name)"><strong ng-class="isCurrent(hasRulesUuid == i.uuid)"></strong>{{i.name}}</span></li>
+                        </ul>
+                    </div>
+                    <div ng-style="configRulesUI" class="configRules">
+                        <ul class="configRulesStyle clear">
+                            <li class="fl" ng-repeat="i in algorithmData">
+                                <div>
+                                    <div index="{{liIndex = $index}}">
+                                        <p ng-repeat="j in i.modes"><span ng-click="toggleAlgorithm(j.uuid,liIndex)"><strong ng-class="isCurrent(j.uuid == createRuleData.modes[liIndex])"></strong>{{j.discription}}</span></p>
+                                    </div>
+                                    <h1 ng-bind="i.name+'脱敏'"></h1>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div><button type="button" class="btn" ng-class="isCurrent(isBackToSourceDisable)" ng-click="backToSource()">上一步</button><button type="button" class="btn" ng-click="toChooseTarget()" ng-class="isCurrent(isToChooseConfigDisable)">下一步</button></div>
+            </div>
+            <div ng-style="chooseTargetUI" class="chooseTarget">
+                <header></header>
+                <h2>选择装载目标</h2>
+                <div><button type="button" class="btn" ng-class="isCurrent(hasTarget)" ng-click="toHasTarget()">已有目标库</button><button type="button" class="btn" ng-class="isCurrent(configTarget)" ng-click="toConfigTarget()">配置目标库</button><button type="button" class="btn" ng-class="isCurrent(csvTarget)" ng-click="toCsvTarget()">CSV</button></div>
+                <div>
+                    <div ng-style="hasTargetUI" class="hasTarget">
+                        <div class="search">
+                            <input type="text" placeholder="请输入数据库名、数据库IP进行搜索" ng-model="searchContent"><button type="button" class="btn" ng-click="search(pageSize,updateTargetDatabase)">搜索</button>
+                        </div>
+                        <div>
+                            <ul class="clear">
+                                <li class="fl"></li>
+                                <li class="fl">连接名</li>
+                                <li class="fl">数据库名</li>
+                                <li class="fl">IP地址</li>
+                                <li class="fl">数据库类型</li>
+                            </ul>
+                            <ul class="clear targetListContent" ng-repeat="i in dataList">
+                                <li class="fl"><strong ng-class="isCurrent(i.id == targetDatabaseId)" ng-click="toggleTargetDatabaseId(i.id,i.dbType)"></strong></li>
+                                <li class="fl" ng-bind="i.name || '——'"></li>
+                                <li class="fl" ng-bind="i.databaseName || '——'"></li>
+                                <li class="fl" ng-bind="i.ip || '——'"></li>
+                                <li class="fl" ng-bind="i.dbType || '——'"></li>
+                            </ul>
+                        </div>
+                        <div class="page">
+                            <a ng-click="prevPage(currentPage,pageSize,updateTargetDatabase)"><</a><a ng-class="isPageCurrent(i,currentPage)" ng-repeat="i in pageData" ng-bind="i" ng-click="togglePage(updateTargetDatabase,i,pageSize)"></a><a ng-click="nextPage(currentPage,totalPage,pageSize,updateTargetDatabase)">></a>
+                        </div>
+                        <div class="testTable">
+                            <div><span>装载数据库表名：</span><input type="text" placeholder="请输入装载表名" ng-model="testHasTableName" ng-focus="hideTestTableTipBox()"></div>
+                            <p ng-style="testTipBoxUI"><s ng-class="isSuccessTest()"></s><strong ng-bind="isSuccessSpan"></strong></p>
+                            <p><button type="button" class="btn" ng-click="testTableName(testHasTableName)">测试表名</button></p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="addDatabase" ng-style="configDatabaseUI">
+                            <ul class="clear">
+                                <li class="fl">
+                                    <div ng-click="toggleDatabaseTargetType('Oracle')" ng-class="isCurrent(databaseTargetType == 'Oracle')">
+                                        <h1></h1>
+                                        <p>Oracle</p>
+                                    </div>
+                                </li>
+                                <li class="fl">
+                                    <div ng-click="toggleDatabaseTargetType('DB2')" ng-class="isCurrent(databaseTargetType == 'DB2')">
+                                        <h1></h1>
+                                        <p>DB2</p>
+                                    </div>
+                                </li>
+                                <li style="display: none" class="fl">
+                                    <div ng-click="toggleDatabaseTargetType('Informix Service')" ng-class="isCurrent(databaseTargetType == 'Informix Service')">
+                                        <h1></h1>
+                                        <p>Informix Service</p>
+                                    </div>
+                                </li>
+                                <li class="fl">
+                                    <div ng-click="toggleDatabaseTargetType('MSSQL')" ng-class="isCurrent(databaseTargetType == 'MSSQL')">
+                                        <h1></h1>
+                                        <p>SQLServer</p>
+                                    </div>
+                                </li>
+                                <li style="display: none" class="fl">
+                                    <div ng-click="toggleDatabaseTargetType('Sybase')" ng-class="isCurrent(databaseTargetType == 'Sybase')">
+                                        <h1></h1>
+                                        <p>Sybase</p>
+                                    </div>
+                                </li>
+                                <li class="fl">
+                                    <div ng-click="toggleDatabaseTargetType('MySQL')" ng-class="isCurrent(databaseTargetType == 'MySQL')">
+                                        <h1></h1>
+                                        <p>MySQL</p>
+                                    </div>
+                                </li>
+                                <li class="fl">
+                                    <div ng-click="toggleDatabaseTargetType('PostgreSQL')" ng-class="isCurrent(databaseTargetType == 'PostgreSQL')">
+                                        <h1></h1>
+                                        <p>PostgreSQL</p>
+                                    </div>
+                                </li>
+                                <li class="fl">
+                                    <div ng-click="toggleDatabaseTargetType('GREENPLUM')" ng-class="isCurrent(databaseTargetType == 'GREENPLUM')">
+                                        <h1></h1>
+                                        <p>TeraDataSQL</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div>
+                                <p><span>数据库地址：</span><input type="text" placeholder="请输入数据库地址" ng-model="databaseTargetIp" ng-focus="hideTestTipBox()"></p>
+                                <p><span>数据库类型：</span><strong ng-bind="databaseTargetType == 'MSSQL' ? 'SQLServer' : databaseTargetType"></strong></p>
+                                <p><span>端口：</span><input type="text" placeholder="请输入端口" ng-model="databaseTargetPort" ng-focus="hideTestTipBox()"></p>
+                                <p><span>帐号：</span><input type="text" placeholder="请输入帐号" ng-model="databaseTargetUsername" ng-focus="hideTestTipBox()"></p>
+                                <p><span>密码：</span><input type="text" placeholder="请输入密码" ng-model="databaseTargetPassword" ng-focus="hideTestTipBox()"></p>
+                                <p><span>数据库名：</span><input type="text" placeholder="请输入数据库名" ng-model="databaseTargetName" ng-focus="hideTestTipBox()"></p>
+                                <p ng-style="testTipBoxUI" class="tipIcon"><strong ng-class="isSuccessTest()"></strong><s ng-bind="isSuccessSpan"></s></p>
+                                <p><button type="button" class="btn" ng-click="testTargetDatabase()" ng-class="isCurrent(isTestBtnDisable)">测试连接</button></p>
+                            </div>
+                        </div>
+                        <div class="testTable" ng-style="testTableUI">
+                            <div><span>数据库是否连接：</span><strong>装载数据库连接成功</strong></div>
+                            <div><span>数据库地址：</span><strong ng-bind="databaseTargetIp"></strong></div>
+                            <div><span>数据库类型：</span><strong ng-bind="databaseType"></strong></div>
+                            <div><span>数据库端口：</span><strong ng-bind="databaseTargetPort"></strong></div>
+                            <div><span>数据库名称：</span><strong ng-bind="databaseTargetName"></strong></div>
+                            <div><span>数据库表名：</span><input type="text" placeholder="请输入装载表名" ng-model="testConfigTableName" ng-focus="hideTestTableTipBox()"></div>
+                            <p ng-style="testTipBoxUI"><s ng-class="isSuccessTest()"></s><strong ng-bind="isSuccessSpan"></strong></p>
+                            <p><button type="button" class="btn" ng-click="backToConfigTarget()">上一步</button><button type="button" class="btn" ng-click="testTableName(testConfigTableName)">测试表名</button></p>
+                        </div>
+                    </div>
+                    <div ng-style="CSVTargetUI" class="CSVTarget">脱敏数据将装载到CSV文件中，脱敏完成后下载到本地进行查看</div>
+                </div>
+                <div><button type="button" class="btn" ng-click="backToRules()">上一步</button><button type="button" class="btn" ng-class="isCurrent(isCreateDisable)" ng-click="isFileOrDatabase()">添加任务</button></div>
+            </div>
+            <div class="created" ng-style="createdUI">
+                <header></header>
+                <h4>脱敏任务（任务ID：<strong ng-bind="createdId"></strong>）已创建，请点击&nbsp;<span ng-click="href('taskList')">任务列表</span>&nbsp;查看</h4>
+                <p><button type="button" class="btn" ng-click="backToFileSensitive()">确认</button></p>
+            </div>
+        </div>
+    </div>
+    <div class="createTaskTip" ng-style="createTaskTipUI">
+        <header class="title">提示</header>
+        <div class="clear loadingBox">
+            <div class="fl loading">
+                <div class="loading-center">
+                    <div class="loading-center-absolute">
+                        <div class="object object_one"></div>
+                        <div class="object object_two"></div>
+                        <div class="object object_three"></div>
+                        <div class="object object_four"></div>
+                        <div class="object object_five"></div>
+                        <div class="object object_six"></div>
+                        <div class="object object_seven"></div>
+                        <div class="object object_eight"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="fl">任务创建中，请稍等···</div>
+        </div>
+    </div>
+</div>

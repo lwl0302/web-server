@@ -1,0 +1,15 @@
+#targetSource .content>div:nth-child(1)>div:nth-child(2){
+    background-color: #f2f2f2;
+    padding: 30px;
+    margin-top: 10px;
+    display: none;
+}
+/*.database*/
+#targetSource .database{
+    padding:30px;
+    background-color: #f2f2f2;
+}
+/*.databaseList*/
+#targetSource .databaseList li{
+    width:12.5%;
+}

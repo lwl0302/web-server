@@ -1,0 +1,20 @@
+<div id="algorithm">
+    <header class="header">当前位置：算法与规则>>算法管理</header>
+    <div class="content">
+        <div><button type="button" class="btn">导入新算法</button><input type="file"></div>
+        <div class="algorithmList">
+            <ul class="clear">
+                <li class="fl" ng-repeat="i in dataList">
+                    <div>
+                        <h1 ng-bind="i.name || '——'"></h1>
+                        <h2 ng-bind="i.name+'发现及脱敏算法' || '——'"></h2>
+                        <p ng-bind="i.discription || '——'"></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="page">
+            <a ng-click="prevPage(currentPage,pageSize,update)"><</a><a ng-class="isPageCurrent(i,currentPage)" ng-repeat="i in pageData" ng-bind="i" ng-click="togglePage(update,i,pageSize)"></a><a ng-click="nextPage(currentPage,totalPage,pageSize,update)">></a>
+        </div>
+    </div>
+</div>

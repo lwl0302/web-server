@@ -1,0 +1,175 @@
+#dataSource .content>div:nth-child(1)>div:nth-child(2){
+    background-color: #f2f2f2;
+    padding: 30px;
+    margin-top: 10px;
+    display: none;
+}
+#dataSource .search>div:hover{
+    color: #ff7a22;
+}
+/*databaseList*/
+#dataSource .databaseList li{
+    width:20%;
+}
+/*databaseTableList*/
+#dataSource .databaseTableList li>div{
+    background: url('../img/tableIcon.png') no-repeat center 20px;
+}
+#dataSource .databaseTableList li>div:hover,#dataSource .databaseTableList li.current>div{
+    background: url('../img/_tableIcon.png') no-repeat center 20px;
+}
+#dataSource .databaseTableList{
+    position: relative;
+}
+#dataSource .backDatabaseList{
+    position: absolute;
+    height:32px;
+    line-height: 32px;
+    bottom:0;
+    left:0;
+    color: #1b8cf2;
+    padding-left: 20px;
+    background: url('../img/back.png') no-repeat 0 center;
+    cursor: pointer;
+}
+#dataSource .backDatabaseList:hover{
+    color: #ff7a22;
+    background: url('../img/back_hover.png') no-repeat 0 center;
+}
+/*databaseAndTableList*/
+#dataSource .databaseAndTableList{
+    position: relative;
+    height:642px;
+}
+#dataSource .databaseAndTableList>div{
+    position: absolute;
+    top:0;
+    padding: 30px;
+}
+#dataSource .databaseAndTableList>div:nth-child(1){
+    left:0;
+    right:360px;
+    background-color: #f5f5f5;
+}
+#dataSource .databaseAndTableList>div:nth-child(2){
+    right:0;
+    width:300px;
+    height:582px;
+    background-color: #ededed;
+    overflow: auto;
+}
+/*databaseMsg And tableMsg*/
+#dataSource .databaseAndTableList>div:nth-child(2) header{
+    font-size: 16px;
+    font-weight: bold;
+    height:20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+#dataSource .databaseAndTableList>div:nth-child(2) p{
+    line-height: 20px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+#dataSource .databaseMsg>div:not(:last-child),#dataSource .tableMsg>div:not(:last-child){
+    background-color: #e6e6e6;
+    margin-bottom: 10px;
+}
+#dataSource .databaseMsg>div:last-child,#dataSource .tableMsg>div:last-child{
+    text-align: center;
+    padding:0 30px;
+}
+#dataSource .databaseMsg>div:last-child button.current{
+    background-color: #b0bcbc;
+    cursor: not-allowed;
+}
+#dataSource .databaseMsg>div:nth-child(7){
+    height:100px;
+}
+#dataSource .databaseMsg>div:nth-child(7)>div{
+    height:100px;
+    width:50%;
+    line-height: 50px;
+}
+#dataSource .databaseMsg>div:nth-child(7)>div h1{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+#dataSource .databaseMsg>div:nth-child(7)>div h2{
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    color: #1568c9;
+}
+#dataSource .databaseMsg>div:nth-child(8){
+    height:110px;
+}
+#dataSource .databaseMsg>div:nth-child(9){
+    height:122px;
+}
+#dataSource .tableMsg>div:nth-child(4){
+    height:100px;
+}
+#dataSource .tableMsg>div:nth-child(4)>div{
+    height:100px;
+    width:50%;
+    line-height: 50px;
+}
+#dataSource .tableMsg>div:nth-child(4)>div h1{
+    font-size: 16px;
+    font-weight: normal;
+    text-align: center;
+}
+#dataSource .tableMsg>div:nth-child(4)>div h2{
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+    color: #1568c9;
+}
+#dataSource .tableMsg>div:nth-child(5){
+    height:110px;
+}
+#dataSource .tableMsg>div:nth-child(6){
+    height:212px;
+}
+#dataSource .sensitiveType h1{
+    font-size: 14px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+}
+#dataSource .sensitiveType h2{
+    font-size: 18px;
+    font-weight: normal;
+    height:70px;
+    line-height: 35px;
+    text-align: center;
+    overflow: hidden;
+}
+#dataSource .sensitiveTableTitle h1{
+    font-size: 14px;
+    height:52px;
+    line-height: 52px;
+    text-align: center;
+}
+#dataSource .sensitiveTableTitle h2{
+    font-size: 18px;
+    font-weight: normal;
+    height:160px;
+    line-height: 40px;
+    text-align: center;
+    overflow: hidden;
+}
+/*updateDatabaseTip*/
+#dataSource .updateDatabaseTip{
+    position: absolute;
+    top:35%;
+    width:500px;
+    left:0;
+    right:0;
+    margin:auto;
+    z-index: 1001;
+    background-color: #fff;
+    display: none;
+}

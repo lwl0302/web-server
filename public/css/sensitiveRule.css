@@ -1,0 +1,113 @@
+/*.tableList*/
+#sensitiveRule .tableList ul>li:first-child{
+    width:5%;
+}
+#sensitiveRule .tableList ul>li:nth-child(2){
+    width:25%;
+}
+#sensitiveRule .tableList ul>li:nth-child(3){
+    width:25%;
+}
+#sensitiveRule .tableList ul>li:nth-child(4){
+    width:25%;
+}
+#sensitiveRule .tableList ul>li:nth-child(5){
+    width:20%;
+}
+#sensitiveRule .tableList ul>li:nth-child(5) button{
+    margin:0 4px;
+}
+#sensitiveRule .tableList ul>li:first-child strong{
+    display: inline-block;
+    width:16px;
+    height:16px;
+    vertical-align: top;
+    margin-top: 12px;
+    cursor: pointer;
+}
+#sensitiveRule .tableList ul>li:first-child strong.open{
+    background: url('../img/subtract.png') no-repeat center;
+}
+#sensitiveRule .tableList ul>li:first-child strong.close{
+    background: url('../img/add.png') no-repeat center;
+}
+#sensitiveRule .tableList>div{
+    position: relative;
+}
+#sensitiveRule .tableList ol{
+    background-color: #fff;
+    border-bottom: 2px solid #f2f2f2;
+}
+#sensitiveRule .tableList ol li{
+    width:25%;
+    font-size: 14px;
+    text-align: center;
+    height:40px;
+    line-height: 40px;
+}
+#sensitiveRule .tableList ol li:first-child{
+    font-weight: bold;
+    font-size: 16px;
+}
+/*.configRules*/
+#sensitiveRule .configRulesBox{
+    position: fixed;
+    top:15%;
+    width:1050px;
+    left:0;
+    right:0;
+    margin:auto;
+    z-index: 1002;
+    background-color: #fff;
+    box-shadow: 0 0 5px #000;
+    display: none;
+}
+#sensitiveRule .configRulesBox>div{
+    padding:0 30px;
+}
+#sensitiveRule .configRulesBox>div:nth-child(2){
+    height:50px;
+    line-height: 50px;
+    margin-top: 20px;
+}
+#sensitiveRule .configRulesBox>div:nth-child(2) input{
+    height:26px;
+    line-height: 26px;
+    border-radius: 4px;
+    width:340px;
+    border:1px solid #aab6b6;
+    padding-left: 8px;
+}
+#sensitiveRule .configRulesBox>div:nth-child(2) strong{
+    font-weight: normal;
+    color: #f00;
+    margin-left: 30px;
+}
+#sensitiveRule .configRulesBox ul{
+    margin:0 30px;
+    padding:15px;
+    background-color: #f2f2f2;
+    overflow: auto;
+}
+#sensitiveRule .configRulesStyle li{
+    width:25%;
+}
+#sensitiveRule .configRulesBox>div:nth-child(4){
+    margin:10px 0;
+}
+#sensitiveRule .configRulesBox>div:nth-child(4) span{
+    width:10%;
+}
+#sensitiveRule .configRulesBox>div:nth-child(4) textarea{
+    width:90%;
+    box-sizing: border-box;
+    resize:none;
+    height:80px;
+    border:1px solid #aab6b6;
+    border-radius: 4px;
+    line-height: 20px;
+}
+#sensitiveRule .configRulesBox>div:nth-child(5){
+    text-align: right;
+    margin-bottom: 30px;
+}

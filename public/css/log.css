@@ -1,0 +1,15 @@
+#log .tableList ul li:nth-child(1){
+    width: 16%;
+}
+#log .tableList ul li:nth-child(2){
+    width: 18%;
+}
+#log .tableList ul li:nth-child(3){
+    width: 18%;
+}
+#log .tableList ul li:nth-child(4){
+    width: 18%;
+}
+#log .tableList ul li:nth-child(5){
+    width: 30%;
+}

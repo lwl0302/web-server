@@ -1,0 +1,70 @@
+<div id="taskList">
+    <header class="header">当前位置：任务与规则>>任务列表</header>
+    <div class="content">
+        <div class="system">
+            <ul class="clear">
+                <li class="fl">任务状态筛选：</li>
+                <li class="fl" ng-click="chooseStatus('')" ng-class="isCurrent(allStatus)">全部任务</li>
+                <li class="fl" ng-click="chooseStatus(0)" ng-class="isCurrent(newStatus)">新建的任务</li>
+                <li class="fl" ng-click="chooseStatus(1)" ng-class="isCurrent(onStatus)">正在进行中的任务</li>
+                <li class="fl" ng-click="chooseStatus(2)" ng-class="isCurrent(pauseStatus)">暂停的任务</li>
+                <li class="fl" ng-click="chooseStatus(-1)" ng-class="isCurrent(cancelStatus)">取消的任务</li>
+                <li class="fl" ng-click="chooseStatus(3)" ng-class="isCurrent(successStatus)">已完成的任务</li>
+                <li class="fl" ng-click="chooseStatus(-2)" ng-class="isCurrent(failStatus)">失败的任务</li>
+            </ul>
+            <ul class="clear">
+                <li class="fl">脱敏规则筛选：</li>
+                <li class="fl" ng-class="isCurrent(allPolicyType)" ng-click="choosePolicyType('')">全部规则</li>
+                <li class="fl" ng-class="isCurrent(hasPolicyType)" ng-click="choosePolicyType(0)">已有规则</li>
+                <li class="fl" ng-class="isCurrent(customPolicyType)" ng-click="choosePolicyType(1)">自定义规则</li>
+            </ul>
+            <ul class="clear">
+                <li class="fl">装载目标筛选：</li>
+                <li class="fl" ng-click="chooseTargetType('')" ng-class="isCurrent(allTargetType)">全部目标</li>
+                <li class="fl" ng-click="chooseTargetType('file')" ng-class="isCurrent(fileTargetType)">文件</li>
+                <li class="fl" ng-click="chooseTargetType('MySQL')" ng-class="isCurrent(MySQLTargetType)">MySQL</li>
+                <li class="fl" ng-click="chooseTargetType('Oracle')" ng-class="isCurrent(OracleTargetType)">Oracle</li>
+                <li class="fl" ng-click="chooseTargetType('DB2')" ng-class="isCurrent(DB2TargetType)">DB2</li>
+                <li class="fl" ng-click="chooseTargetType('IDS')" ng-class="isCurrent(IDSTargetType)">Informix Dynamic Server</li>
+                <li class="fl" ng-click="chooseTargetType('SQLServer')" ng-class="isCurrent(SQLServerTargetType)">SQLServer</li>
+                <li class="fl" ng-click="chooseTargetType('Sybase')" ng-class="isCurrent(SybaseTargetType)">Sybase</li>
+                <li class="fl" ng-click="chooseTargetType('PostgreSQL')" ng-class="isCurrent(PostgreSQLTargetType)">PostgreSQL</li>
+                <li class="fl" ng-click="chooseTargetType('GreenPlun')" ng-class="isCurrent(GreenPlunTargetType)">GreenPlun</li>
+                <li class="fl" ng-click="chooseTargetType('TareData')" ng-class="isCurrent(TeraDataTargetType)">TeraData</li>
+            </ul>
+            <div class="search"><input type="text" placeholder="请输入任务ID或人物文件(表)名进行搜索" ng-model="searchContent"><button type="button" class="btn" ng-click="search(pageSize,update)">搜索</button></div>
+        </div>
+        <div class="tableList">
+            <ul class="clear">
+                <li class="fl">任务ID</li>
+                <li class="fl">任务文件(表)名</li>
+                <li class="fl">任务生成时间</li>
+                <li class="fl">脱敏规则</li>
+                <li class="fl">装载目标</li>
+                <li class="fl">任务进行时间</li>
+                <li class="fl">状态</li>
+                <li class="fl">操作</li>
+            </ul>
+            <ul class="clear" ng-repeat="i in dataTaskList">
+                <li class="fl" ng-bind="i.uuid"></li>
+                <li class="fl" ng-bind="i.sourceFile+'('+i.sourceType+')'"></li>
+                <li class="fl" ng-bind="i.createAt"></li>
+                <li class="fl" ng-bind="i.policy"></li>
+                <li class="fl" ng-bind="i.targetFile+'('+i.targetType+')'"></li>
+                <li class="fl" ng-bind="i.time || '——'"></li>
+                <li class="fl"><span ng-bind="i.status"></span><strong ng-class="isCurrent(i.status == '已完成' && i.targetType == 'file')" ng-click="fileDownload(i.loads)"></strong></li>
+                <li class="fl">
+                    <div ng-style="btnUI(i.status == '未启动')"><button type="button" class="btn" ng-click="startTaskBtn(i.uuid)">开始任务</button></div>
+                    <div ng-style="btnUI(i.status != '未启动' && i.status != '已暂停' && i.status != '已取消' && i.status != '已完成' && i.status != '抽取失败' && i.status != '扫描失败' && i.status != '脱敏失败' && i.status != '装载失败')"><button type="button" class="btn" ng-click="pauseTaskBtn(i.uuid)">暂停</button><button type="button" class="btn" ng-click="cancelTaskBtn(i.uuid)">取消</button></div>
+                    <div ng-style="btnUI(i.status == '已暂停')"><button type="button" class="btn" ng-click="startTaskBtn(i.uuid)">启动</button><button type="button" class="btn" ng-click="cancelTaskBtn(i.uuid)">取消</button></div>
+                    <div ng-style="btnUI(i.status == '已取消')"><button type="button" class="btn disable">任务取消</button></div>
+                    <div ng-style="btnUI(i.status == '已完成')"><button type="button" class="btn disable">任务完成</button></div>
+                    <div ng-style="btnUI(i.status == '装载失败' || i.status == '脱敏失败' || i.status == '扫描失败' || i.status == '抽取失败')"><button type="button" class="btn" ng-click="startTaskBtn(i.uuid)">任务重试</button></div>
+                </li>
+            </ul>
+        </div>
+        <div class="page">
+            <a ng-click="prevPage(currentPage,pageSize,update)"><</a><a ng-class="isPageCurrent(i,currentPage)" ng-repeat="i in pageData" ng-bind="i" ng-click="togglePage(update,i,pageSize)"></a><a ng-click="nextPage(currentPage,totalPage,pageSize,update)">></a>
+        </div>
+    </div>
+</div>

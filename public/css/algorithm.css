@@ -1,0 +1,56 @@
+/*导入算是你发按钮*/
+#algorithm .content>div:nth-child(1){
+    position: relative;
+    width:96px;
+    margin-bottom: 15px;
+    display: none;
+}
+#algorithm .content>div:nth-child(1) input{
+    position: absolute;
+    top:0;
+    left:0;
+    height:30px;
+    width:96px;
+    opacity: 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#algorithm .content>div:nth-child(1):hover button{
+    background-color: #ff7a22;
+    cursor: pointer;
+}
+/*.algorithmList*/
+#algorithm .algorithmList{
+    background-color: #f2f2f2;
+    padding: 15px;
+}
+#algorithm .algorithmList li{
+    width:20%;
+    padding:8px 15px;
+    box-sizing: border-box;
+}
+#algorithm .algorithmList li div{
+    height:166px;
+    padding:24px;
+    background:#fff url('../img/algorithmIcon.png') no-repeat center 30px;
+    padding-top: 106px;
+}
+#algorithm .algorithmList li div h1{
+    height:50px;
+    line-height: 50px;
+    font-size: 24px;
+    color: #fff;
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+#algorithm .algorithmList li div h2{
+    font-size: 16px;
+    line-height: 40px;
+    height:40px;
+    text-align: center;
+}
+#algorithm .algorithmList li div p{
+    line-height: 26px;
+    font-size: 14px;
+}

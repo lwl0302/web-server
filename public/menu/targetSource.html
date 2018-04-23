@@ -1,0 +1,99 @@
+<div id="targetSource">
+    <header class="header">当前位置：目标源管理</header>
+    <div class="content">
+        <div>
+            <div><button type="button" class="btn" ng-click="toggleAddDatabase()">新增目标数据库</button></div>
+            <div ng-style="addDatabaseUI">
+                <div class="addDatabase">
+                    <ul class="clear">
+                        <li class="fl">
+                            <div ng-click="toggleDatabaseType('Oracle')" ng-class="isCurrent(databaseType == 'Oracle')">
+                                <h1></h1>
+                                <p>Oracle</p>
+                            </div>
+                        </li>
+                        <li class="fl">
+                            <div ng-click="toggleDatabaseType('DB2')" ng-class="isCurrent(databaseType == 'DB2')">
+                                <h1></h1>
+                                <p>DB2</p>
+                            </div>
+                        </li>
+                        <li style="display: none;" class="fl">
+                            <div ng-click="toggleDatabaseType('Informix Service')" ng-class="isCurrent(databaseType == 'Informix Service')">
+                                <h1></h1>
+                                <p>Informix Service</p>
+                            </div>
+                        </li>
+                        <li class="fl">
+                            <div ng-click="toggleDatabaseType('MSSQL')" ng-class="isCurrent(databaseType == 'MSSQL')">
+                                <h1></h1>
+                                <p>SQLServer</p>
+                            </div>
+                        </li>
+                        <li style="display: none;" class="fl">
+                            <div ng-click="toggleDatabaseType('Sybase')" ng-class="isCurrent(databaseType == 'Sybase')">
+                                <h1></h1>
+                                <p>Sybase</p>
+                            </div>
+                        </li>
+                        <li class="fl">
+                            <div ng-click="toggleDatabaseType('MySQL')" ng-class="isCurrent(databaseType == 'MySQL')">
+                                <h1></h1>
+                                <p>MySQL</p>
+                            </div>
+                        </li>
+                        <li class="fl">
+                            <div ng-click="toggleDatabaseType('PostgreSQL')" ng-class="isCurrent(databaseType == 'PostgreSQL')">
+                                <h1></h1>
+                                <p>PostgreSQL</p>
+                            </div>
+                        </li>
+                        <li class="fl">
+                            <div ng-click="toggleDatabaseType('GREENPLUM')" ng-class="isCurrent(databaseType == 'GREENPLUM')">
+                                <h1></h1>
+                                <p>GreenPlumSQL</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div>
+                        <p><span>数据库地址：</span><input type="text" placeholder="请输入数据库地址" ng-model="databaseIp" ng-focus="hideTestTipBox()"></p>
+                        <p><span>数据库类型：</span><strong ng-bind="databaseType == 'MSSQL' ? 'SQLServer' : databaseType"></strong></p>
+                        <p><span>端口：</span><input type="text" placeholder="请输入端口" ng-model="databasePort" ng-focus="hideTestTipBox()"></p>
+                        <p><span>帐号：</span><input type="text" placeholder="请输入帐号" ng-model="databaseUsername" ng-focus="hideTestTipBox()"></p>
+                        <p><span>密码：</span><input type="text" placeholder="请输入密码" ng-model="databasePassword" ng-focus="hideTestTipBox()"></p>
+                        <p><span>数据库名：</span><input type="text" placeholder="请输入数据库名" ng-model="databaseName" ng-focus="hideTestTipBox()"></p>
+                        <p><span>数据库备注：</span><input type="text" placeholder="请输入数据库备注" ng-model="databaseCommon" ng-focus="hideTestTipBox()"></p>
+                        <p><span>连接名：</span><input type="text" placeholder="请输入连接名" ng-model="databaseHrefName" ng-focus="hideTestTipBox()"></p>
+                        <p ng-style="testTipBoxUI" class="tipIcon"><strong ng-class="isSuccessTest()"></strong><s ng-bind="isSuccessSpan"></s></p>
+                        <p>
+                            <button ng-style="testBtnUI" type="button" class="btn" ng-click="testDatabase()" ng-class="isCurrent(isTestBtnDisable)">测试连接</button>
+                            <button ng-style="confirmBtnUI" type="button" class="btn" ng-click="createDatabase()">确认添加</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="search"><input type="text" placeholder="请输入数据库名、数据库地址进行搜索" ng-model="searchContent"><button type="button" class="btn" ng-click="search(pageSize,update)">搜索</button><button type="button" class="btn fr" ng-click="openDeleteBox(databaseId)">删除数据库</button></div>
+        </div>
+        <div class="database">
+            <div class="databaseList">
+                <ul class="clear">
+                    <li ng-repeat="i in dataList" class="fl" ng-class="isCurrent(i.id == databaseId)" onselectstart="return false" style="-moz-user-select:none;">
+                        <div ng-click="toggleCurrentDatabase(i.id)">
+                            <h1 ng-bind="i.name || '——'"></h1>
+                            <h2 ng-bind="i.ip || '——'"></h2>
+                            <h4 ng-bind="i.databaseName || '——'"></h4>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="page">
+            <a ng-click="prevPage(currentPage,pageSize,update)"><</a><a ng-class="isPageCurrent(i,currentPage)" ng-repeat="i in pageData" ng-bind="i" ng-click="togglePage(update,i,pageSize)"></a><a ng-click="nextPage(currentPage,totalPage,pageSize,update)">></a>
+        </div>
+    </div>
+    <div class="deleteBox" ng-style="deleteBoxUI">
+        <header class="clear title">提示<strong class="fr" ng-click="closeDeleteBox()"></strong></header>
+        <p>确认是否删除？</p>
+        <div><button type="button" class="btn" ng-click="closeDeleteBox()">取消</button><button type="button" class="btn" ng-click="deleteDatabase()">确认删除</button></div>
+    </div>
+</div>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>敏感信息管理与脱敏系统</title>
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/echarts-liquidfill.min.js"></script>
+    <script src="js/sockjs.min.js"></script>
+    <script src="js/stomp.min.js"></script>
+    <script src="js/index.js"></script>
+    <link rel="icon" href="" type="image/x-icon">
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/dataSource.css">
+    <link rel="stylesheet" href="css/targetSource.css">
+    <link rel="stylesheet" href="css/algorithm.css">
+    <link rel="stylesheet" href="css/sensitiveRule.css">
+    <link rel="stylesheet" href="css/taskList.css">
+    <link rel="stylesheet" href="css/createTask.css">
+    <link rel="stylesheet" href="css/log.css">
+</head>
+<body>
+<header id="header" class="clear"><span class="fl">敏感信息管理与脱敏系统</span></header>
+<nav id="nav">
+    <ul>
+        <li>
+            <h3 ng-class="isCurrent(homeNav)" ng-click="href('home')"><strong class="fl"></strong><span>首页</span></h3>
+        </li>
+        <li>
+            <h3 ng-class="isCurrent(dataSourceNav)" ng-click="href('dataSource')"><strong class="fl"></strong><span>数据源管理</span></h3>
+        </li>
+        <li>
+            <h3 ng-class="isCurrent(targetSourceNav)" ng-click="href('targetSource')"><strong class="fl"></strong><span>装载源管理</span></h3>
+        </li>
+        <li>
+            <h3><strong class="fl"></strong><span>算法与规则</span></h3>
+            <div>
+                <h4 ng-class="isCurrent(algorithmNav)" ng-click="href('algorithm')"><s class="fl"></s><span>算法管理</span></h4>
+                <h4 ng-class="isCurrent(sensitiveRuleNav)" ng-click="href('sensitiveRule')"><s class="fl"></s><span>脱敏规则管理</span></h4>
+            </div>
+        </li>
+        <li>
+            <h3><strong class="fl"></strong><span>任务管理</span></h3>
+            <div>
+                <h4 ng-class="isCurrent(taskListNav)" ng-click="href('taskList')"><s class="fl"></s><span>任务列表</span></h4>
+                <h4 ng-class="isCurrent(createTaskNav)" ng-click="href('createTask')"><s class="fl"></s><span>新建任务</span></h4>
+            </div>
+        </li>
+        <li style="display: none; ">
+            <h3 ng-class="isCurrent(logNav)" ng-click="href('log')"><strong class="fl"></strong><span>操作日志</span></h3>
+        </li>
+    </ul>
+</nav>
+<div id="mask" ng-style="maskUI"></div>
+<div id="titleBox" ng-style="titleBoxUI">
+    <header class="clear title">提示<strong class="fr"></strong></header>
+    <p>配置新规则成功</p>
+    <div><button type="button" class="btn" ng-click="closeTitleBox()">确认</button></div>
+</div>
+<section id="main" ng-view></section>
+</body>
+</html>

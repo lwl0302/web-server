@@ -1,0 +1,50 @@
+#taskList .tableList ul li:nth-child(1){
+    width: 10%;
+}
+#taskList .tableList ul li:nth-child(2){
+    width: 18%;
+}
+#taskList .tableList ul li:nth-child(3){
+    width: 14%;
+}
+#taskList .tableList ul li:nth-child(4){
+    width: 14%;
+}
+#taskList .tableList ul li:nth-child(5){
+    width: 18%;
+}
+#taskList .tableList ul li:nth-child(6){
+    width: 8%;
+}
+#taskList .tableList ul li:nth-child(7){
+    width: 8%;
+}
+#taskList .tableList ul li:nth-child(8){
+    width: 10%;
+}
+#taskList .tableList ul li button{
+    margin:0 4px;
+}
+#taskList .tableList ul li strong{
+    display: none;
+    width:20px;
+    height:20px;
+    vertical-align: top;
+    margin-top: 10px;
+    margin-left: 10px;
+    cursor: pointer;
+    background: url('../img/download.png') no-repeat center;
+}
+#taskList .tableList ul li strong:hover{
+    background-image: url('../img/_download.png');
+}
+#taskList .tableList ul li strong.current{
+    display: inline-block;
+}
+#taskList .tableList ul li button.disable{
+    background-color: #b0bcbc;
+    cursor: not-allowed;
+}
+#taskList .tableList ul li div{
+    display: none;
+}
